@@ -9,7 +9,7 @@ import lombok.Data;
  * CustomerDTO
  */
 @Data @Component @Lazy
-public class CustomerDTO {
+public class MemberDTO {
 
        private String id,customerName, customerId, password, email, address;
 }

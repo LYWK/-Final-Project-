@@ -25,7 +25,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Table(name = "customers")
-public class Customer implements Serializable {
+public class Member implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -43,7 +43,7 @@ public class Customer implements Serializable {
     }
 
     @Builder
-    public Customer(String customerId,String customerName,
+    public Member(String customerId,String customerName,
     String password,String ssn,String phone,String city,
     String address,String postalcode,String photo){
         this.customerId = customerId;
