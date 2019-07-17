@@ -8,7 +8,7 @@ import './test.css'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
-
+import './assets/css/test1.css'
 import Footer from './containers/Footer.jsx'
 
 // import Table from '@material-ui/core/Table';
@@ -27,7 +27,7 @@ import Mynav from './components/Mynav.jsx';
 import Board from './components/Board.jsx'
 import main from './components/main.jsx'
 import Shop from './components/Shop.jsx'
-
+import Top from './components/Top.jsx'
 function App() {
 
 
@@ -37,14 +37,16 @@ function App() {
           <Router>
                 <Grid container>
 
-                <Grid item xs={10}>
+                <Grid item xs={12} className="test9" >
                   {/* top, logo, pattern  */}
-                  <Box className="test9" >
-                       
+                  <Box >
+                      <Top></Top> 
+                       <Batton></Batton>
                   </Box>
+                  
                 </Grid>
            
-                  <Batton></Batton>
+                  
                 
                   
                 <Grid item xs={12}>
@@ -62,7 +64,9 @@ function App() {
                 </Grid>  
 
                   <Grid item xs={12}>
+                  <Box className="footer">
                       <Footer></Footer>
+                  </Box>
                   </Grid>
             </Grid>
         </Router> 

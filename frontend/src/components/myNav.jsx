@@ -66,9 +66,9 @@ const Mynav=()=>{
               </Tabs>
               </AppBar>
   
-        <TabContainer dir={theme.direction}>Item One</TabContainer>
-        <TabContainer dir={theme.direction}>Item Two</TabContainer>
-        <TabContainer dir={theme.direction}>Item Three</TabContainer>
+        {/* <TabContainer dir={theme.direction}>Item One</TabContainer>
+        <TabContainer dir={theme.direction}>Item Two</TabContainer> */}
+        
    
     </div>
    

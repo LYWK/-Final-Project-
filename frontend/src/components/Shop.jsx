@@ -17,6 +17,9 @@ const Shop=()=>{
         table: {
           minWidth: 650,
         },
+        button:{
+          
+        }
       }));
       
       const classes = useStyles();
@@ -49,6 +52,7 @@ const Shop=()=>{
         </TableRow>
       ))}
     </TableBody>
+    <button>글쓰기</button>
   </Table>
 </Paper>
             </div>

@@ -3,9 +3,20 @@
      
 }
 .test8{
-    color: white;
+    color: whitesmoke;
 }
 
 .test9{
-    background-image: url("");
+
+     height: 100px;
+    background-image: url("../images/bbbbb.PNG");
+
 }
+.logo{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.Batton{
+   margin-left: 120px;
+}
+

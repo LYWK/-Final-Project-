@@ -58,7 +58,9 @@ const Board=()=>{
           <TableCell align="right">{row.protein}</TableCell>
         </TableRow>
       ))}
-    </TableBody>
+      <button style={{position:"absolute", right:"10px"}}>글쓰기</button>
+    </TableBody>  
+   
   </Table>
 </Paper>
   </div>

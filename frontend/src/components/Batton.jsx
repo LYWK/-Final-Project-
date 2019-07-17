@@ -2,11 +2,13 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, withStyles,makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import '../assets/css/test1.css'
+import { ThemeProvider } from '@material-ui/styles';
+import { blue, purple } from '@material-ui/core/colors';
 const Batton=()=>{
       function rand() {
             return Math.round(Math.random() * 20) - 10;
@@ -25,12 +27,23 @@ const Batton=()=>{
       const useStyles = makeStyles(theme => ({ 
             paper: {
                   position: 'absolute',
+                  right:'0',
                   width: 400,
                   backgroundColor: theme.palette.background.paper,
                   border: '2px solid #000',
                   boxShadow: theme.shadows[5],
                   padding: theme.spacing(2, 4, 4),
-                  outline: 'none',
+                  // outline: 'none',
+                },
+                button: {
+                  margin: theme.spacing(1),
+                   
+                },
+                input: {
+                  display: 'none',
+                },
+                margin: {
+                  margin: theme.spacing(1),
                 },
       }));
       const classes = useStyles();
@@ -53,25 +66,70 @@ const Batton=()=>{
 
             setOpen1(false);
         };
+        const theme = createMuiTheme({
+          palette: {
+            primary: purple,
+          },
+        });
+       
+        const BootstrapButton = withStyles({
+          root: {
+            // boxShadow: 'none',
+            textTransform: 'none',
+            fontSize: 16,
+            // padding: '6px 12px',
+            // border: '1px solid',
+            lineHeight: 1.5,
+            backgroundColor: '#007bff',
+            //borderColor: '#007bff',
+            fontFamily: [
+              '-apple-system',
+              'BlinkMacSystemFont',
+              '"Segoe UI"',
+              'Roboto',
+              '"Helvetica Neue"',
+              'Arial',
+              'sans-serif',
+              '"Apple Color Emoji"',
+              '"Segoe UI Emoji"',
+              '"Segoe UI Symbol"',
+            ].join(','),
+            '&:hover': {
+              backgroundColor: '#0069d9',
+              borderColor: '#0062cc',
+            },
+            '&:active': {
+              boxShadow: 'none',
+              backgroundColor: '#0062cc',
+              borderColor: '#005cbf',
+            },
+            '&:focus': {
+              boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+            },
+          },
+        })(Button);
 
 
-
-        
       return(
- 
            <>
-      <Grid item xs={1}>
-      <Box className="login">
-            <Button onClick={handleOpen} variant="contained" color="primary"   
-            className={classes.button}>로그인</Button> 
-      </Box>
-      </Grid>
-      <Grid item xs={1}>
-      <Box className="join">
+      {/* <Grid item xs={1}> */}
+      {/* <Box className="login"> */}
+     
+        <div style={{position:"absolute", right:"0px", top:"20px"}}>
+            <BootstrapButton onClick={handleOpen} variant="contained"  color="primary"
+            className={classes.margin}  >로그인</BootstrapButton> 
+      
+      {/* </Box> */}
+      {/* </Grid> */}
+      {/* <Grid item xs={1}> */}
+      {/* <Box className="join"> */}
+      <ThemeProvider theme={theme}>
             <Button onClick={joinOpen} variant="contained" color="primary"
-            className={classes.button}>회원가입</Button> 
-      </Box>
-      </Grid>
+            className={classes.margin}  >회원가입</Button> 
+      </ThemeProvider>
+   </div>
+      {/* </Box> */}
+      {/* </Grid> */}
 
 
       <Modal
@@ -98,9 +156,9 @@ const Batton=()=>{
                margin="normal"
                variant="outlined"
              /> <br></br>
-                  <Button variant="outlined" color="primary" className={classes.button}>
+                  <BootstrapButton variant="contained" color="primary" className={classes.button}>
                        Primary
-                  </Button>
+                  </BootstrapButton>
                     
                            <div>
                             <Router>
@@ -190,10 +248,10 @@ const Batton=()=>{
  
       <br></br>
       
-      <Button variant="outlined" color="primary" className={classes.button}>
+      <BootstrapButton variant="contained" color="primary" className={classes.button}>
         Primary
-      </Button>
-      <Button variant="outlined" color="secondary" className={classes.button}>
+      </BootstrapButton>
+      <Button variant="contained" color="secondary" className={classes.button}>
         Secondary
       </Button>
     </form>
