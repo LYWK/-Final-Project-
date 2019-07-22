@@ -11,5 +11,6 @@ import lombok.Data;
 @Data @Component @Lazy
 public class MemberDTO {
 
-       private String id,customerName, customerId, password, email, address;
+       private String memberName, memberId, password, email, address;
+       private Long id;
 }

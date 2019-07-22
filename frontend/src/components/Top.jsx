@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import '../assets/css/test1.css'
-import { BrowserRouter,Router, Route, Link} from "react-router-dom";
+import { Link} from "react-router-dom";
 import log from '../assets/images/fffffffff.png'
 import log2 from '../assets/images/sdfsdfs.png'
 class Top extends Component{
@@ -8,7 +8,7 @@ class Top extends Component{
 
         return(
             <>
-            <Link to = "/" ><img src={log} className="logo"/></Link>
+           <Link to = "/" ><img src={log} className="logo"/></Link>
            </>
         );
 

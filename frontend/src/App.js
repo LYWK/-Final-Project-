@@ -9,7 +9,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
 import './assets/css/test1.css'
-import Footer from './containers/Footer.jsx'
+import FooterWrapper from './components/FooterWrapper'
+// import Test from './components/smaple'
 
 // import Table from '@material-ui/core/Table';
 // import TableBody from '@material-ui/core/TableBody';
@@ -20,7 +21,7 @@ import TextField from '@material-ui/core/TextField';
 //import Mynav from './components/myNav.jsx'
 //import { Link as RouterLink } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Batton from './components/Batton.jsx';
+import Batton from './components/Batton.js';
 import Mynav from './components/Mynav.jsx';
 //import Link from '@material-ui/core/Link';
 //import { MemoryRouter as Router } from 'react-router';
@@ -28,27 +29,33 @@ import Board from './components/Board.jsx'
 import main from './components/main.jsx'
 import Shop from './components/Shop.jsx'
 import Top from './components/Top.jsx'
-function App() {
+import Login from './components/Login'
+import Join from './components/Join'
+import Mypage from './components/Mypage'
 
-
+class App extends Component {
+    constructor(props){
+      super(props);
+    }
+  render(){
   return (
     <div className="App">
-    
+               
+                
           <Router>
                 <Grid container>
 
                 <Grid item xs={12} className="test9" >
                   {/* top, logo, pattern  */}
                   <Box >
-                      <Top></Top> 
-                       <Batton></Batton>
+                 
+                       <Top></Top> 
+                        <Batton></Batton> 
+                       {/* <Test></Test> */}
+                                
                   </Box>
-                  
                 </Grid>
-           
-                  
-                
-                  
+
                 <Grid item xs={12}>
                     <Box className="test" >
                        <Mynav></Mynav>
@@ -60,12 +67,15 @@ function App() {
                       <Route exact path="/" component={main} />
                       <Route path="/com" component={Board} />
                       <Route path="/shop" component={Shop} />
+                      {/* <Route path="/join" component={Join} />
+                      <Route path="/login" component={Login} /> */}
+                       <Route path="/mypage" component={Mypage} />
                       </Box>
                 </Grid>  
 
                   <Grid item xs={12}>
                   <Box className="footer">
-                      <Footer></Footer>
+                      <FooterWrapper></FooterWrapper>
                   </Box>
                   </Grid>
             </Grid>
@@ -73,5 +83,5 @@ function App() {
     </div>
   );
 }
-
+}
 export default App;

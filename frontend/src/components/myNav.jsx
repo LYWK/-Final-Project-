@@ -58,6 +58,7 @@ const Mynav=()=>{
                 indicatorColor="primary"
                 textColor="primary"
                 className="test7"
+                
                 >
                 <Link to = "/"></Link>
                 <Link to = "/com" className="test8"><Tab label="Item One" /></Link>

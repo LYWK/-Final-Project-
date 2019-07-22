@@ -11,6 +11,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 
 public interface MemberRepository  extends CrudRepository<Member, Long>{
-
-    public Member findByCustomerIdAndPassword(String id, String password);
+    //login
+    public Member findMemberByMemberIdAndPassword(String id, String password);
+    
+    //mypage
+    public Member findMemberByMemberId(String memberid);
+    
 }

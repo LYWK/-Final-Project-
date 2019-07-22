@@ -1,12 +1,14 @@
 package com.petshop.web.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
@@ -17,37 +19,38 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * Customer
+ * member
  */
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Entity
 @Getter
 @Setter
 @ToString
-@Table(name = "customers")
+@Table(name = "members")
 public class Member implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    @Column(name="customer_id") private String customerId; 
-    @Column(name="customer_name") private String customerName;
+    @Column(name="member_id") private String memberId; 
+    @Column(name="member_name") private String memberName;
     @Column(name="password") private String password;
     @Column(name="email") private String email;
     @Column(name="address") private String address;
-    
+     @OneToMany
+    private List<Board> board;
     @Override
     public String toString(){
-        return "Customer :[id:"+id+",customerId:" +customerId+", customerName:"+customerName+", password:"+password+", email:"+email+
+        return "Member :[id:"+id+",memberId:" +memberId+", memberName:"+memberName+", password:"+password+", email:"+email+
        ", address:"+address+"]";
     }
 
     @Builder
-    public Member(String customerId,String customerName,
+    public Member(String memberId,String memberName,
     String password,String ssn,String phone,String city,
     String address,String postalcode,String photo){
-        this.customerId = customerId;
-        this.customerName = customerName;
+        this.memberId = memberId;
+        this.memberName = memberName;
         this.password = password;
         this.email = ssn;
         this.address = address;
