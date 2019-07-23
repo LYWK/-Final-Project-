@@ -44,12 +44,10 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void deleteById(Long id) {
-            repo.deleteById(id);
+    public void deleteByMemberId(String id) {
+
+        repo.deleteByMemberId(id);
     }
 
-  
-
- 
     
 }

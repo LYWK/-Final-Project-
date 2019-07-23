@@ -23,6 +23,6 @@ public interface MemberService {
 	
     public Iterable<Member> saveAll(Iterable<Member> entities);
 	
-    public void	deleteById(Long id);
+    public void	deleteByMemberId(String id);
 
 }

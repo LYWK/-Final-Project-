@@ -43,6 +43,7 @@ class Batton extends Component{
             </div>
       ) : (
           // <span>temp1</span>
+          
            <this.renderItems></this.renderItems>
       )
 
@@ -101,12 +102,15 @@ class Batton extends Component{
   check = () => {
     // alert('check')
     this.setState({ reload: !this.state.reload })
+    window.location.reload("");
   }
   logout = () => {
     alert('로그아웃 완료')
     sessionStorage.clear()
     this.check()
-    // this.props.history.push("/")
+    //this.props.history.push("");
+   
+
   }
 }
 

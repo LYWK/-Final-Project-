@@ -86,9 +86,12 @@ public class MemberController {
                 MemberDTO.class);
     }
 
-    @DeleteMapping("/{id}")
-    public void	delete(@PathVariable("id")Long id){
-        memberService.deleteById(id);
+    @DeleteMapping("/{memberId}")
+    public void	delete(@PathVariable("memberId")String id){
+        System.out.println("delte test");
+        Member entity = new Member();
+        entity = repo.findMemberByMemberId(id);
+        repo.deleteById(entity.getId());
     }
 
     @GetMapping("/mypage/{id}")

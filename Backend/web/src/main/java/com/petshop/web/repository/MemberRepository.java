@@ -16,5 +16,8 @@ public interface MemberRepository  extends CrudRepository<Member, Long>{
     
     //mypage
     public Member findMemberByMemberId(String memberid);
+
+
+    public Member deleteByMemberId(String id);
     
 }
