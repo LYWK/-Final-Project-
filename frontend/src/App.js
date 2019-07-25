@@ -25,14 +25,14 @@ import Batton from './components/Batton.js';
 import Mynav from './components/Mynav.jsx';
 //import Link from '@material-ui/core/Link';
 //import { MemoryRouter as Router } from 'react-router';
-import Board from './components/Board.jsx'
+import Board from './components/Board'
 import main from './components/main.jsx'
 import Shop from './components/Shop.jsx'
 import Top from './components/Top.jsx'
 import Login from './components/Login'
 import Join from './components/Join'
 import Mypage from './components/Mypage'
-
+import BoardForm from './components/BoardForm'
 class App extends Component {
     constructor(props){
       super(props);
@@ -70,6 +70,7 @@ class App extends Component {
                       {/* <Route path="/join" component={Join} />
                       <Route path="/login" component={Login} /> */}
                        <Route path="/mypage" component={Mypage} />
+                       <Route path="/boardform" component={BoardForm} />
                       </Box>
                 </Grid>  
 

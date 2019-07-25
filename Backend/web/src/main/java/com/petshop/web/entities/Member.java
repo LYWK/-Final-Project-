@@ -3,6 +3,7 @@ package com.petshop.web.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,7 +38,7 @@ public class Member implements Serializable {
     @Column(name="password") private String password;
     @Column(name="email") private String email;
     @Column(name="address") private String address;
-     @OneToMany
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Board> board;
     @Override
     public String toString(){
@@ -47,12 +48,11 @@ public class Member implements Serializable {
 
     @Builder
     public Member(String memberId,String memberName,
-    String password,String ssn,String phone,String city,
-    String address,String postalcode,String photo){
+    String password,String email,String address){
         this.memberId = memberId;
         this.memberName = memberName;
         this.password = password;
-        this.email = ssn;
+        this.email = email;
         this.address = address;
     
     }

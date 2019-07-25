@@ -13,12 +13,13 @@ class Mypage extends Component{
             memberName: '',
             address: '',
             email: '',
-            password:''
+            password:'',
+           
         }
         this.modipass = this.modipass.bind(this)
     }
 
-
+    
 
 
     componentDidMount () {
@@ -107,39 +108,39 @@ class Mypage extends Component{
     render(){
 
         let modiPassArea = (
-            <form class="text-center border border-light" style={{width:'300px'}}>
+            <form class="text-center border border-light" style={{width:'350px', margin:'auto',marginTop:'10px'}}>
 
             <p class="h4 mb-4"> 내 정보 변경 </p>
             <label>비밀번호:</label>
             <input type="password" name='curpass' 
               onChange={function(e) {
               this.setState({curpass: e.target.value});
-             }.bind(this)} placeholder="현재비밀번호"/>
+             }.bind(this)} placeholder="현재비밀번호" style={{verticalAlign:'center'}}/> <p></p>
             <label>새 비밀번호:</label>
             <input type="password" name='modipass' 
               onChange={function(e) {
               this.setState({modipass: e.target.value});
-            }.bind(this)} placeholder="새로운비밀번호"/>
-         
+            }.bind(this)} placeholder="새로운비밀번호"/><p></p>
+            <label>새 비밀번호 확인:</label>
             <input type="password" name='modipasschk' 
              onChange={function(e) {
               this.setState({modipasschk: e.target.value});
-             }.bind(this)}placeholder="새로운비밀번호 확인"/>
-
+             }.bind(this)}placeholder="새로운비밀번호 확인"/><p></p>
+            <label>이름:</label>
             <input type="text" name='modiname' value={this.state.memberName} 
              onChange={function(e) {
                  this.setState({memberName: e.target.value});
-             }.bind(this)}  placeholder="변경할 이름"/>
-
+             }.bind(this)}  placeholder="변경할 이름"/><p></p>
+              <label>주소:</label>
             <input type="text" name='modiaddress' value={this.state.address} 
              onChange={function(e) {
                  this.setState({address: e.target.value});
-             }.bind(this)}  placeholder="변경할 주소"/>
-
+             }.bind(this)}  placeholder="변경할 주소"/><p></p>
+             <label>이메일:</label>
             <input type="text" name='modiemail' value={this.state.email}
               onChange={function(e) {
                 this.setState({email: e.target.value});
-            }.bind(this)}  placeholder="변경할 이메일"/>
+            }.bind(this)}  placeholder="변경할 이메일"/><p></p>
 
             <button class="btn btn-info btn-block my-4" onClick={this.modipass}>변경하기</button>
         
@@ -147,8 +148,9 @@ class Mypage extends Component{
         )
         return(
             <>
-          {modiPassArea}
-            <table class="table" style={{width:'500px'}} >
+          {modiPassArea}<p></p><p></p>
+          <p class="h4 mb-4" style={{width:'500px', margin:'auto'}}>현재 내 정보</p>
+            <table class="table" style={{width:'500px', margin:'auto'}} >
               <thead>
                 <tr>
                   <th scope="col">아이디</th>

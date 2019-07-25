@@ -1,14 +1,18 @@
 package com.petshop.web.entities;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -32,12 +36,20 @@ public class Board implements Serializable{
     @Column(name="writer") private String writer; 
     @Column(name="title") private String title;
     @Column(name="content") private String content;
-    @Column(name="date") private String date;
+
+    @CreationTimestamp
+    @Column(name="date") private Timestamp date;
+    
     @Column(name="cnt") private String cnt;
     @Column(name="photo") private String photo;
     @Column(name="sort") private String sort;
-     @ManyToOne 
-     private Member member;
+    @ManyToOne
+    @JoinColumn(name="id")
+    private Member member;
+
+     @ManyToOne
+     
+     
     @Override
     public String toString(){
         return "Board :[writer:"+writer+",title:" +title+", content:"+content+", date:"+date+", cnt:"+cnt+
@@ -46,7 +58,7 @@ public class Board implements Serializable{
 
     @Builder
     public Board(
-    String writer,String  title,String content,String date,
+    String writer,String  title,String content,Timestamp date,
     String cnt,String photo,String sort){
         this.writer = writer;
         this.title = title;
