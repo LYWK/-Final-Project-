@@ -43,13 +43,14 @@ public class Board implements Serializable{
     @Column(name="cnt") private String cnt;
     @Column(name="photo") private String photo;
     @Column(name="sort") private String sort;
-    @ManyToOne
-    @JoinColumn(name="id")
-    private Member member;
+  
+    @Column(name = "photo_path", nullable = true)
+    private String photo_path;
 
-     @ManyToOne
-     
-     
+    @ManyToOne
+    //@JoinColumn(name="id")
+    private Member member;
+   
     @Override
     public String toString(){
         return "Board :[writer:"+writer+",title:" +title+", content:"+content+", date:"+date+", cnt:"+cnt+

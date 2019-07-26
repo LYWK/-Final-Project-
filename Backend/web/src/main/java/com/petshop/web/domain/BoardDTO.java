@@ -15,4 +15,6 @@ public class BoardDTO {
 
     private String id,writer,sort, title, content,  cnt;
     private Timestamp date;
+    private String photo,photo_path;
+    
 }

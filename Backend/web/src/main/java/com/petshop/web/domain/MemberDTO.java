@@ -12,5 +12,6 @@ import lombok.Data;
 public class MemberDTO {
 
        private String memberName, memberId, password, email, address;
+       private Long id;
       
 }

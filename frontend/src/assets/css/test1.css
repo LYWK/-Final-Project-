@@ -31,3 +31,28 @@
 .btn.btn-default{
     margin-left: 65%;
 }
+
+.write.border label{
+  width: 10%;
+  margin-left:10px;
+     
+}
+
+.write.border input{
+  width: 95%;
+  margin-left: 10px;
+     
+}
+
+.write.border textarea{
+    width: 95%;
+    margin-left: 10px;
+    height: 300px;
+  }
+  .btn.btn-light{
+      margin-left:85%;
+  }
+
+  .fas.fa-camera.fa-lg{
+      margin-left: 10px;
+  }

@@ -38,8 +38,12 @@ public class Member implements Serializable {
     @Column(name="password") private String password;
     @Column(name="email") private String email;
     @Column(name="address") private String address;
+
+
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Board> board;
+    
+    
     @Override
     public String toString(){
         return "Member :[id:"+id+",memberId:" +memberId+", memberName:"+memberName+", password:"+password+", email:"+email+
