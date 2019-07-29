@@ -33,7 +33,7 @@ public class Board implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    @Column(name="writer") private String writer; 
+    //@Column(name="writer") private String writer; 
     @Column(name="title") private String title;
     @Column(name="content") private String content;
 
@@ -48,26 +48,27 @@ public class Board implements Serializable{
     private String photo_path;
 
     @ManyToOne
-    //@JoinColumn(name="id")
+    @JoinColumn(name="member_id")
     private Member member;
    
     @Override
     public String toString(){
-        return "Board :[writer:"+writer+",title:" +title+", content:"+content+", date:"+date+", cnt:"+cnt+
+        return "Board :[title:" +title+", content:"+content+", date:"+date+", cnt:"+cnt+
        ", photo:"+photo+", sort:"+sort+"]";
     }
 
-    @Builder
-    public Board(
-    String writer,String  title,String content,Timestamp date,
-    String cnt,String photo,String sort){
-        this.writer = writer;
-        this.title = title;
-        this.content = content;
-        this.date = date;
-        this.cnt = cnt;
-        this.photo = photo;
-        this.sort = sort;
-    }
+    // @Builder
+    // public Board(
+    // String writer,String  title,String content,Timestamp date,
+    // String cnt,String photo,String sort,String memberId){
+    //     this.writer = writer;
+    //     this.title = title;
+    //     this.content = content;
+    //     this.date = date;
+    //     this.cnt = cnt;
+    //     this.photo = photo;
+    //     this.sort = sort;
+    //     this.memberId = memberId;
+    // }
     
 }

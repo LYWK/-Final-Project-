@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * BoardController
  */
-@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
 @RequestMapping("/board")
 public class BoardController {
@@ -71,7 +71,7 @@ public class BoardController {
         Board entity = new Board();
         entity.setTitle(dto.getTitle());
         entity.setContent(dto.getContent());
-        entity.setWriter(dto.getWriter());
+        //entity.setWriter(dto.getWriter());
         entity.setDate(dto.getDate());
         entity.setSort(dto.getSort());;
         entity.setCnt(dto.getCnt());

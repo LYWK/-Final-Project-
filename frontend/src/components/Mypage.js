@@ -115,7 +115,7 @@ class Mypage extends Component{
             <input type="password" name='curpass' 
               onChange={function(e) {
               this.setState({curpass: e.target.value});
-             }.bind(this)} placeholder="현재비밀번호" style={{verticalAlign:'center'}}/> <p></p>
+             }.bind(this)} placeholder="현재비밀번호" /> <p></p>
             <label>새 비밀번호:</label>
             <input type="password" name='modipass' 
               onChange={function(e) {

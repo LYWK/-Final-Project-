@@ -50,15 +50,15 @@ public class Member implements Serializable {
        ", address:"+address+"]";
     }
 
-    @Builder
-    public Member(String memberId,String memberName,
-    String password,String email,String address){
-        this.memberId = memberId;
-        this.memberName = memberName;
-        this.password = password;
-        this.email = email;
-        this.address = address;
+    // @Builder
+    // public Member(String memberId,String memberName,
+    // String password,String email,String address){
+    //     this.memberId = memberId;
+    //     this.memberName = memberName;
+    //     this.password = password;
+    //     this.email = email;
+    //     this.address = address;
     
-    }
+    // }
     
 }
