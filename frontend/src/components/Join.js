@@ -23,12 +23,18 @@ class Join extends Component{
   
     handleSubmit = event => {
       event.preventDefault();
-  
-      axios.post('http://localhost:9000/members', {memberId: this.state.memberId
-      ,password: this.state.password
-      ,memberName: this.state.memberName
-      ,address: this.state.address
-      ,email: this.state.email}) 
+      let data = {
+        memberId:  this.state.memberId,
+        password:  this.state.password,
+        memberName: this.state.memberName,
+        address : this.state.address,
+        email : this.state.email
+      }
+      let headers = {
+        'Content-Type': 'application/json',
+        Authorization: 'JWT fefege..'
+      }
+      axios.post('http://localhost:8080/members', JSON.stringify(data), { headers: headers }) 
         .then(res => {
           console.log(res);
           console.log(res.data);

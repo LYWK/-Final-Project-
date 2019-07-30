@@ -6,6 +6,7 @@ import dog3 from '../assets/images/dog3.jpg'
 const main=()=>{
        return(
            <>
+           
                 <Carousel>
                           <Carousel.Item>
                               <img

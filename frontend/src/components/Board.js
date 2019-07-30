@@ -8,74 +8,55 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Link } from "react-router-dom";
 import BoardItem from './BoardItem';
-
+import BoardForm from './BoardForm';
+import axios from 'axios'
 class Board extends Component{
 
-             state ={
-                  boards: [
-                      {
-                        num: 1,
-                        title:  'kate',
-                        writer: 'moss',
-                        date:   new Date(),
-                        cnt : '4',
-                      },
-                      {
-                        num: 2,
-                        title:  'anna',
-                        writer: 'wintour',
-                        date:   new Date(),
-                        cnt : '2',
-                      },
-                      {       
-                        num: 3,  
-                        title:  'tom',
-                        writer: 'bond',
-                        date:   new Date(),
-                        cnt : '7',
-                      },
-                      {       
-                        num: 4,  
-                        title:  'jerry',
-                        writer: 'horwitz',
-                        date:   new Date(),
-                        cnt : '8',
-                      }
-                  ]
-              }
-          
+        constructor(props){
+           super(props)
+           this.state = {
+            title:'',
+            date: '',
+            cnt: '',
+                }
+            }
+
+            componentDidMount () {
+           
+              axios.get(`http://localhost:8080/board`).then(res => {
+                alert(res.data);
+                this.setState({ title: res.data.title, 
+                                date: res.data.date, 
+                                cnt: res.data.cnt, 
+                             })
+                  })
+                  }
+
   render(){
-
-    const {boards} = this.state;
-
      return(
        <div>
-      
-
-          <table class="table table-striped w-auto" style={{ margin:"auto"}} >
-
-          <tbody>
+    
+          <table class="table table-striped w-auto" style={{ margin:"auto"}}  >
+          <thead>
             <tr>
-              <th></th>
-              <th>글 제목</th>
-              <th>작성자</th>
-              <th>작성일자</th>
-              <th>조회수</th>
-            </tr>
-       
-
-          
-            {
-            boards.map(row => 
-              (<BoardItem key={row.num} row={row}/>)
-            )
-            }
-            </tbody>
-      </table>
+              <td>글 제목</td>
+              <td>작성일자</td>
+              <td>조회수</td>
+            </tr> 
+            </thead>     
+            <tbody>
+                <tr>
+                  <td>{this.state.title}</td>
+                  <td>{this.state.date}</td>
+                  <td>{this.state.cnt}</td>
+                </tr>
+              </tbody>
+          </table>
           <Link to = "/boardform"><button type="button" class="btn btn-default" >글쓰기</button></Link> 
    </div>
     );
   }
 }
+
 
 export default Board;

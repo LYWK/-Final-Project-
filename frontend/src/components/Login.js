@@ -34,7 +34,7 @@ class Login extends Component{
           const headers = {
             'Content-Type': 'application/json'
           }
-        Axios.post(`http://localhost:9000/members/login`, JSON.stringify(data),{headers: headers}) 
+        Axios.post(`http://localhost:8080/members/login`, JSON.stringify(data),{headers: headers}) 
           .then(res => {
             alert('login 합니다.')
             sessionStorage.setItem('loginId',res.data.memberId);

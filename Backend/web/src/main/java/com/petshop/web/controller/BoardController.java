@@ -8,7 +8,9 @@ import javax.persistence.EntityNotFoundException;
 
 import com.petshop.web.common.CommonConfig;
 import com.petshop.web.domain.BoardDTO;
+import com.petshop.web.domain.MemberDTO;
 import com.petshop.web.entities.Board;
+import com.petshop.web.entities.Member;
 import com.petshop.web.repository.BoardRepository;
 import com.petshop.web.service.BoardService;
 
@@ -64,14 +66,16 @@ public class BoardController {
     }
 
     @PostMapping("")
-    public HashMap<String,String> Joinboard(@RequestBody BoardDTO dto) {
+    public HashMap<String,String> Joinboard(@RequestBody BoardDTO dto){
         
         System.out.println("regist test");
         HashMap<String,String> map = new HashMap<>();
         Board entity = new Board();
         entity.setTitle(dto.getTitle());
         entity.setContent(dto.getContent());
-        //entity.setWriter(dto.getWriter());
+        Member member = new Member();
+       member.setMemberId(dto.getMemberId());
+       entity.setMember(member); 
         entity.setDate(dto.getDate());
         entity.setSort(dto.getSort());;
         entity.setCnt(dto.getCnt());

@@ -24,7 +24,7 @@ class Mypage extends Component{
 
     componentDidMount () {
         let loginId = sessionStorage.getItem('loginId')
-        axios.get(`http://localhost:9000/members/mypage/${loginId}`).then(res => {
+        axios.get(`http://localhost:8080/members/mypage/${loginId}`).then(res => {
           this.setState({ loginUser: res.data, 
                           memberName: res.data.memberName, 
                           address: res.data.address, 
@@ -53,7 +53,7 @@ class Mypage extends Component{
             Authorization: 'JWT fefege..'
           }
           axios
-            .put(`http://localhost:9000/members/modi`, JSON.stringify(data), { headers: headers })
+            .put(`http://localhost:8080/members/modi`, JSON.stringify(data), { headers: headers })
             .then( res => {
               alert('비밀번호가 수정되었습니다')
               this.setState({curpass: '',
@@ -80,7 +80,7 @@ class Mypage extends Component{
         }).then(result => {
           if (result.value) {
             axios
-              .delete(`http://localhost:9000/members/${loginId}`)
+              .delete(`http://localhost:8080/members/${loginId}`)
               .then(res => {
                 sessionStorage.clear()
                 Swal.fire('탈퇴가 완료되었습니다.')
