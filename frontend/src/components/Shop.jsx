@@ -52,7 +52,7 @@ const Shop=()=>{
         </TableRow>
       ))}
     </TableBody>
-    <button>글쓰기</button>
+    {/* <button>글쓰기</button> */}
   </Table>
 </Paper>
             </div>

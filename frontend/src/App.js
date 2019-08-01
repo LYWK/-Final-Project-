@@ -1,38 +1,19 @@
 import React, {Component} from 'react';
-import Paper from '@material-ui/core/Paper';
-import Modal from '@material-ui/core/Modal';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import { makeStyles } from '@material-ui/core/styles';
 import './test.css'
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Button from '@material-ui/core/Button';
 import './assets/css/test1.css'
 import FooterWrapper from './components/FooterWrapper'
-// import Test from './components/smaple'
-
-// import Table from '@material-ui/core/Table';
-// import TableBody from '@material-ui/core/TableBody';
-// import TableCell from '@material-ui/core/TableCell';
-// import TableHead from '@material-ui/core/TableHead';
-// import TableRow from '@material-ui/core/TableRow';
-import TextField from '@material-ui/core/TextField';
-//import Mynav from './components/myNav.jsx'
-//import { Link as RouterLink } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Batton from './components/Batton.js';
 import Mynav from './components/Mynav.jsx';
-//import Link from '@material-ui/core/Link';
-//import { MemoryRouter as Router } from 'react-router';
 import Board from './components/Board'
 import main from './components/main.jsx'
 import Shop from './components/Shop.jsx'
 import Top from './components/Top.jsx'
-import Login from './components/Login'
-import Join from './components/Join'
 import Mypage from './components/Mypage'
 import BoardForm from './components/BoardForm'
+import BoardDetail from './components/BoardDetail'
 class App extends Component {
     constructor(props){
       super(props);
@@ -47,7 +28,7 @@ class App extends Component {
 
                 <Grid item xs={12} className="test9" >
                   {/* top, logo, pattern  */}
-                  <Box >
+                  <Box className= "upper">
                  
                        <Top></Top> 
                         <Batton></Batton> 
@@ -62,7 +43,7 @@ class App extends Component {
                     </Box>
                 </Grid>    
 
-                <Grid item xs={12}>
+                <Grid item xs={12} >
                       <Box className="test2">
                       <Route exact path="/" component={main} />
                       <Route path="/com" component={Board} />
@@ -71,9 +52,9 @@ class App extends Component {
                       <Route path="/login" component={Login} /> */}
                        <Route path="/mypage" component={Mypage} />
                        <Route path="/boardform" component={BoardForm} />
+                       <Route path="/boarddetail/:id" component={BoardDetail}/>
                       </Box>
                 </Grid>  
-
                   <Grid item xs={12}>
                   <Box className="footer">
                       <FooterWrapper></FooterWrapper>

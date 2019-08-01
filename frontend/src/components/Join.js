@@ -7,16 +7,16 @@ class Join extends Component{
      constructor(props){
           super(props)
         this.state = {
-            memberId: '',
+            memberid: '',
             password:'',
-            memberName: '',
+            membername: '',
             address: '',
             email: '',
         }
      }
-      handleUserIDChange = (e) => {this.setState({ memberId: e.target.value })}
+      handleUserIDChange = (e) => {this.setState({ memberid: e.target.value })}
       handleFullNameChange = (e) => {this.setState({ password: e.target.value })}
-      handleUserGroupChange = (e) => {this.setState({ memberName: e.target.value })}
+      handleUserGroupChange = (e) => {this.setState({ membername: e.target.value })}
       handleEmailIDChange = (e) => {this.setState({ address: e.target.value })}
       handleMobileChange = (e) => {this.setState({ email: e.target.value })}
     
@@ -24,9 +24,9 @@ class Join extends Component{
     handleSubmit = event => {
       event.preventDefault();
       let data = {
-        memberId:  this.state.memberId,
+        memberid:  this.state.memberid,
         password:  this.state.password,
-        memberName: this.state.memberName,
+        membername: this.state.membername,
         address : this.state.address,
         email : this.state.email
       }
@@ -51,13 +51,13 @@ class Join extends Component{
                 <p class="h4 mb-4">회원가입</p>
 
                 <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="ID" 
-                 name="memberId" onChange={this.handleUserIDChange}></input>
+                 name="memberid" onChange={this.handleUserIDChange}></input>
 
                 <input type="password" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Password" 
                  name="password" onChange={this.handleFullNameChange}></input>
 
                 <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name" 
-                 name="memberName" onChange={this.handleUserGroupChange}></input>
+                 name="membername" onChange={this.handleUserGroupChange}></input>
 
                 <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Address" 
                  name="address" onChange={this.handleEmailIDChange}></input>

@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import '../assets/css/test1.css'
 import { Link} from "react-router-dom";
 import log from '../assets/images/fffffffff.png'
-import log2 from '../assets/images/sdfsdfs.png'
 class Top extends Component{
     render(){
 

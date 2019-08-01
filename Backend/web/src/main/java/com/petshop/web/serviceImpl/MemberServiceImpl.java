@@ -29,8 +29,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Optional<Member> findById(Long id) {
-        return repo.findById(id);
+    public Optional<Member> findById(Long writerid) {
+        return repo.findById(writerid);
     }
 
     @Override
@@ -44,10 +44,18 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void deleteByMemberId(String id) {
-
-        repo.deleteByMemberId(id);
+    public void deleteByMemberid(String memberid) {
+        repo.deleteByMemberid(memberid);
     }
 
-    
+    @Override
+    public String findMembernameByWriterid(Long writerid) {
+        return repo.findMembernameByWriterid(writerid);
+    }
+
+    @Override
+    public Member findByWriterid(Long writerid) {
+        return repo.findByWriterid(writerid);
+    }
+
 }

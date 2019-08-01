@@ -10,7 +10,7 @@ class Mypage extends Component{
             curpass: '',
             modipass: '',
             modipasschk:'',
-            memberName: '',
+            membername: '',
             address: '',
             email: '',
             password:'',
@@ -26,7 +26,7 @@ class Mypage extends Component{
         let loginId = sessionStorage.getItem('loginId')
         axios.get(`http://localhost:8080/members/mypage/${loginId}`).then(res => {
           this.setState({ loginUser: res.data, 
-                          memberName: res.data.memberName, 
+                          membername: res.data.membername, 
                           address: res.data.address, 
                           email: res.data.email,
                           password: res.data.password})
@@ -42,9 +42,9 @@ class Mypage extends Component{
           alert('현재 비밀번호가 일치하지 않습니다.')
         } else {
           let data = {
-            memberId:  this.state.loginUser.memberId,
+            memberid:  this.state.loginUser.memberid,
             password:  this.state.modipass,
-            memberName: this.state.memberName,
+            membername: this.state.membername,
             address : this.state.address,
             email : this.state.email
           }
@@ -127,9 +127,9 @@ class Mypage extends Component{
               this.setState({modipasschk: e.target.value});
              }.bind(this)}placeholder="새로운비밀번호 확인"/><p></p>
             <label>이름:</label>
-            <input type="text" name='modiname' value={this.state.memberName} 
+            <input type="text" name='modiname' value={this.state.membername} 
              onChange={function(e) {
-                 this.setState({memberName: e.target.value});
+                 this.setState({membername: e.target.value});
              }.bind(this)}  placeholder="변경할 이름"/><p></p>
               <label>주소:</label>
             <input type="text" name='modiaddress' value={this.state.address} 
@@ -154,7 +154,7 @@ class Mypage extends Component{
               <thead>
                 <tr>
                   <th scope="col">아이디</th>
-                  <td>{this.state.loginUser.memberId}</td>
+                  <td>{this.state.loginUser.memberid}</td>
                 </tr>
               </thead>
               
@@ -168,7 +168,7 @@ class Mypage extends Component{
               <tbody>
                 <tr>
                   <th scope="col">이름</th>
-                  <td>{this.state.loginUser.memberName}</td>
+                  <td>{this.state.loginUser.membername}</td>
                 </tr>
               </tbody>
 

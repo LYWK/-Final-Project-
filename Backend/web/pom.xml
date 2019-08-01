@@ -67,7 +67,12 @@
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-entitymanager</artifactId>
     <version>5.2.3.Final</version>
-</dependency>
+</dependency> 
+<dependency>
+            <groupId>ch.simas.qlrm</groupId>
+            <artifactId>qlrm</artifactId>
+            <version>1.6.9</version>
+        </dependency>
     <dependency>
       <groupId>org.hamcrest</groupId>
       <artifactId>hamcrest-core</artifactId>
@@ -102,6 +107,8 @@
         <artifactId>spring-security-core</artifactId>
          <version>3.0.3.RELEASE</version> 
     </dependency>-->
+ 
+
   </dependencies> 
   <build>
     <plugins>

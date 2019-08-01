@@ -9,6 +9,7 @@ import javax.persistence.EntityNotFoundException;
 import com.petshop.web.common.CommonConfig;
 import com.petshop.web.domain.MemberDTO;
 import com.petshop.web.entities.Member;
+import com.petshop.web.entities.ResultMap;
 import com.petshop.web.repository.MemberRepository;
 import com.petshop.web.service.MemberService;
 
@@ -68,13 +69,15 @@ public class MemberController {
         System.out.println("Join test");
         HashMap<String,String> map = new HashMap<>();
         Member entity = new Member();
-        entity.setMemberId(dto.getMemberId());
-        entity.setMemberName(dto.getMemberName());
+        entity.setMemberid(dto.getMemberid());
+        entity.setMembername(dto.getMembername());
         entity.setPassword(dto.getPassword());
         entity.setAddress(dto.getAddress());
         entity.setEmail(dto.getEmail());;
         memberService.save(entity);
-         System.out.println("Join test");
+
+
+        System.out.println("Join test");
          map.put("result", "SUCCESS");
          return  map;
     }
@@ -82,31 +85,31 @@ public class MemberController {
     @PostMapping("/login")
     public MemberDTO login(@RequestBody MemberDTO dto) {
         System.out.println("Join test");
-        return config.modelMapper().map(repo.findMemberByMemberIdAndPassword(dto.getMemberId(), dto.getPassword()),
+        return config.modelMapper().map(repo.findMemberByMemberidAndPassword(dto.getMemberid(), dto.getPassword()),
                 MemberDTO.class);
     }
 
     @DeleteMapping("/{memberId}")
-    public void	delete(@PathVariable("memberId")String id){
+    public void	delete(@PathVariable("memberId")Long id){
         System.out.println("delte test");
         Member entity = new Member();
-        entity = repo.findMemberByMemberId(id);
-        repo.deleteById(entity.getId());
+        entity = repo.findByWriterid(id);
+        repo.deleteById(entity.getWriterid());
     }
 
     @GetMapping("/mypage/{id}")
-    public MemberDTO mypage(@PathVariable String id) {
-        repo.findMemberByMemberId(id);
-        return config.modelMapper().map(repo.findMemberByMemberId(id), MemberDTO.class);
+    public MemberDTO mypage(@PathVariable Long id) {
+        repo.findByWriterid(id);
+        return config.modelMapper().map(repo.findByWriterid(id), MemberDTO.class);
     }
 
         // 비밀번호 수정
     @PutMapping("/modi")
         public void modiPass(@RequestBody MemberDTO dto) {
             Member entity = new Member();
-            entity = repo.findMemberByMemberId(dto.getMemberId());
+            entity = repo.findMemberByMemberid(dto.getMemberid());
             entity.setPassword(dto.getPassword());
-            entity.setMemberName(dto.getMemberName());
+            entity.setMembername(dto.getMembername());
             entity.setEmail(dto.getEmail());
             entity.setAddress(dto.getAddress());
             repo.save(entity);

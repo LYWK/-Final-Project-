@@ -2,6 +2,8 @@ package com.petshop.web.entities;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -31,25 +34,30 @@ public class Board implements Serializable{
         
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
-    //@Column(name="writer") private String writer; 
-    @Column(name="title") private String title;
-    @Column(name="content") private String content;
+    @Column(name = "bno")
+    @GeneratedValue(strategy=GenerationType.AUTO) private Long bno;
 
-    @CreationTimestamp
-    @Column(name="date") private Timestamp date;
+    @Column(name="title") private String title;
+    
+    @Column(name="content") private String content;
+    
+   
+    @DateTimeFormat(style = "YYYY.MM.DD, h:mm:ss")
+    @Column(name="date") 
+    private LocalDateTime date;
     
     @Column(name="cnt") private String cnt;
+    
     @Column(name="photo") private String photo;
+    
     @Column(name="sort") private String sort;
-  
-    @Column(name = "photo_path", nullable = true)
-    private String photo_path;
-
+    
+    @Column(name = "photopath", nullable = true) private String photopath;
+    
     @ManyToOne
-    @JoinColumn(name="member_id")
+    @JoinColumn(name="writerid")
     private Member member;
+    
    
     @Override
     public String toString(){

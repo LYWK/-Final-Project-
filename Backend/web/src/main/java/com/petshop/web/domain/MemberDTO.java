@@ -1,7 +1,5 @@
 package com.petshop.web.domain;
 
-import com.petshop.web.entities.Member;
-
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +11,8 @@ import lombok.Data;
 @Data @Component @Lazy
 public class MemberDTO {
 
-       private String memberName, memberId, password, email, address;
-       private Long id;
+       private String membername, memberid, password, email, address;
+       private Long writerid;
 
       
 }

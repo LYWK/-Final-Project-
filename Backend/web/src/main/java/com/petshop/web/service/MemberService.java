@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import com.petshop.web.domain.MemberDTO;
 import com.petshop.web.entities.Member;
+import com.petshop.web.entities.ResultMap;
 
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 public interface MemberService {
 
-    public Member save(Member entity);
+    public Member save(Member resultentity);
 	
     public Optional<Member>	findById(Long id);
 	
@@ -23,6 +24,11 @@ public interface MemberService {
 	
     public Iterable<Member> saveAll(Iterable<Member> entities);
 	
-    public void	deleteByMemberId(String id);
+    public void	deleteByMemberid(String id);
+    
+    public String findMembernameByWriterid(Long long1);
 
+    public Member findByWriterid(Long writerid);
+  
+   
 }

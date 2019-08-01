@@ -9,7 +9,7 @@ class Login extends Component{
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.signIn = this.signIn.bind(this);
         this.state = {
-            memberId:'',
+            memberid:'',
             password:'',
          
         };
@@ -18,17 +18,17 @@ class Login extends Component{
 
     handleIDChange(e){
         //console.dir(this);
-        this.setState({memberId:e.target.value})
+        this.setState({memberid:e.target.value})
     }
     handlePasswordChange(e){
         this.setState({password:e.target.value})
     }
     signIn(e){
        // console.dir(this);
-        alert('ID is ' + this.state.memberId + ' Password is ' + this.state.password);   
+        alert('ID is ' + this.state.memberid + ' Password is ' + this.state.password);   
         e.preventDefault();
           let data = {
-            memberId: this.state.memberId,
+            memberid: this.state.memberid,
             password: this.state.password
           }
           const headers = {
@@ -36,11 +36,12 @@ class Login extends Component{
           }
         Axios.post(`http://localhost:8080/members/login`, JSON.stringify(data),{headers: headers}) 
           .then(res => {
-            alert('login 합니다.')
-            sessionStorage.setItem('loginId',res.data.memberId);
-            sessionStorage.setItem('loginName',res.data.memberName);
+            alert('=== login id is ===> '+ res.data.writerid+', name is '+ res.data.membername);
+            sessionStorage.setItem('loginId',res.data.writerid);
+            sessionStorage.setItem('loginName',res.data.membername);
             console.log(res);
-          alert(res.data.memberName);
+          alert('=== session storage is id ===>'+sessionStorage.getItem('loginId')+', '+sessionStorage.getItem('loginName'));
+
           window.location.reload();
         // this.props.history.push("/")
           })
@@ -55,7 +56,7 @@ class Login extends Component{
                 <p class="h4 mb-4">로그인</p>
 
                     <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="ID"
-                     name="memberId" onChange={this.handleIDChange}></input>
+                     name="memberid" onChange={this.handleIDChange}></input>
 
                     <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password"
                      name="password" onChange={this.handlePasswordChange}></input>

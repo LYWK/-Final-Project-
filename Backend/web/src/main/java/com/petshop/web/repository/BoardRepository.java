@@ -1,7 +1,12 @@
 package com.petshop.web.repository;
 
+import java.util.HashMap;
+import java.util.List;
+
 import com.petshop.web.entities.Board;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +15,43 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface BoardRepository extends CrudRepository<Board, Long>{
-        
     
+
+    
+
+
+    // @Column(name = "bno")
+    // @GeneratedValue(strategy=GenerationType.AUTO) private Long bno;
+
+    // @Column(name="title") private String title;
+    
+    // @Column(name="content") private String content;
+    
+    // @CreationTimestamp
+    // @Column(name="date") private Timestamp date;
+    
+    // @Column(name="cnt") private String cnt;
+    
+    // @Column(name="photo") private String photo;
+    
+    // @Column(name="sort") private String sort;
+    
+    // @Column(name = "photopath", nullable = true) private String photopath;
+    
+    // @ManyToOne
+    // @JoinColumn(name="writerid")
+    // private Member member;
+    @Query(
+        value = "select * from boards b JOIN members m ON b.writerid=m.writerid"
+        , nativeQuery = true
+    )
+    public List<Board> listAll();
+
+    @Query(
+        value = "select * from boards where bno=:id"
+        , nativeQuery = true
+    )
+    public Board findByBno(Long id);
+
+
 }

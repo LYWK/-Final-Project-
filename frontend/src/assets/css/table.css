@@ -1,0 +1,32 @@
+#title {
+    text-align: center;
+    font-family: arial, sans-serif;
+  }
+  
+  #boards {
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  #boards td, #boards th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #boards tr:nth-child(even){background-color: #eecd0f;}
+  #boards tr:nth-child(odd){background-color: #eea00f;}
+  
+  #boards tr:hover {background-color: #ddd;}
+  
+  #boards th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(17, 20, 17);
+    color: white;
+  }
+  

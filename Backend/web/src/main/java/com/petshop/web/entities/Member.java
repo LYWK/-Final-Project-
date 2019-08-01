@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,22 +32,24 @@ import lombok.ToString;
 public class Member implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @Column(name = "writerid")
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
-    @Column(name="member_id") private String memberId; 
-    @Column(name="member_name") private String memberName;
+    private Long writerid;
+    @Column(name="memberid") private String memberid; 
+    @Column(name="membername") private String membername;
     @Column(name="password") private String password;
     @Column(name="email") private String email;
     @Column(name="address") private String address;
 
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "writerid")
     private List<Board> board;
     
     
     @Override
     public String toString(){
-        return "Member :[id:"+id+",memberId:" +memberId+", memberName:"+memberName+", password:"+password+", email:"+email+
+        return "Member :[writerid:"+writerid+",memberId:" +memberid+", memberName:"+membername+", password:"+password+", email:"+email+
        ", address:"+address+"]";
     }
 

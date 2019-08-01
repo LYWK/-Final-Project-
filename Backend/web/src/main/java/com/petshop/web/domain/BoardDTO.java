@@ -2,6 +2,8 @@ package com.petshop.web.domain;
 
 import java.sql.Timestamp;
 
+import com.petshop.web.entities.Member;
+
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +15,8 @@ import lombok.Data;
 @Data @Component @Lazy
 public class BoardDTO {
 
-    private String id,sort, title, content,  cnt;
+    private String sort, title, content,  cnt, photo, photopath, membername;
     private Timestamp date;
-    private String photo,photo_path;
-    private String memberId;
+    private Long writerid,bno;
+
 }
