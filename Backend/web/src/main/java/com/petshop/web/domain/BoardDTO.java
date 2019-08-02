@@ -1,6 +1,7 @@
 package com.petshop.web.domain;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import com.petshop.web.entities.Member;
 
@@ -15,8 +16,9 @@ import lombok.Data;
 @Data @Component @Lazy
 public class BoardDTO {
 
-    private String sort, title, content,  cnt, photo, photopath, membername;
-    private Timestamp date;
+    private String sort, title, content,   photo, photopath, membername;
+    private int cnt;
+    private LocalDateTime date;
     private Long writerid,bno;
 
 }

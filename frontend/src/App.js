@@ -14,6 +14,8 @@ import Top from './components/Top.jsx'
 import Mypage from './components/Mypage'
 import BoardForm from './components/BoardForm'
 import BoardDetail from './components/BoardDetail'
+import BaardUpdate from './components/BoardUpdate'
+import BoardUpdate from './components/BoardUpdate';
 class App extends Component {
     constructor(props){
       super(props);
@@ -52,6 +54,7 @@ class App extends Component {
                       <Route path="/login" component={Login} /> */}
                        <Route path="/mypage" component={Mypage} />
                        <Route path="/boardform" component={BoardForm} />
+                       <Route path="/updateboard/:id" component={BoardUpdate}/>
                        <Route path="/boarddetail/:id" component={BoardDetail}/>
                       </Box>
                 </Grid>  

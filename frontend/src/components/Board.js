@@ -11,8 +11,14 @@ class Board extends Component{
                boards: [ ],
                list: []
               }
-            }
 
+            this.writeform = this.writeform.bind(this);
+            }
+         
+            writeform(){
+               this.props.history.push('/boardform'); 
+            }
+          
             componentDidMount () {
            
               axios.get(`http://localhost:8080/board/listall`)
@@ -24,13 +30,15 @@ class Board extends Component{
                   //       list:[...this.state.list, index]
                   //    })
                   // })
+                  
                   this.setState({
                      list : res.data.list
                   })
 
-                console.log('test' + JSON.stringify(res.data.result));
-                const boards = res.data.result.map(d => [d.id, d.title, d.date,  d.cnt, d.membername]);
-                this.setState({  boards });
+               console.log('test' + JSON.stringify(res.data.result));
+               
+               //  const boards = res.data.result.map(d => [d.id, d.title, d.date,  d.cnt, d.membername]);
+               //  this.setState({  boards });
                   });
             }
             renderTableHeader() {  
@@ -73,19 +81,19 @@ class Board extends Component{
                            <tr>
                               <td>{index+1}</td>
                               <td>
-                               <Link to={`/boarddetail/${index+1}`}>
+                               <Link to={`/boarddetail/${contact.bno}`}>
                               {contact.title} 
                               </Link>
                               </td>
                               <td>{contact.member.membername}</td>
                               <td><Moment format="YYYY.MM.DD HH:mm:ss">{contact.date}</Moment></td>
-                              <td>0</td>
+                              <td>{contact.cnt}</td>
                            </tr>
                            )
                         })}
                      </tbody>
                   </table>
-                  <Link to = "/boardform"><button type="button" class="btn btn-default" >글쓰기</button></Link> 
+                 <button type="button" class="btn btn-default" onClick={this.writeform} >글쓰기</button>
                </div>
             )
          }

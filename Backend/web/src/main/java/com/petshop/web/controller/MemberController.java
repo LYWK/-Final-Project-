@@ -10,6 +10,7 @@ import com.petshop.web.common.CommonConfig;
 import com.petshop.web.domain.MemberDTO;
 import com.petshop.web.entities.Member;
 import com.petshop.web.entities.ResultMap;
+import com.petshop.web.repository.BoardRepository;
 import com.petshop.web.repository.MemberRepository;
 import com.petshop.web.service.MemberService;
 
@@ -38,6 +39,7 @@ public class MemberController {
     @Autowired MemberService memberService;
     @Autowired CommonConfig config;
     @Autowired MemberRepository repo;
+    @Autowired BoardRepository boardrepo;
 
     @GetMapping("")
     public Iterable<MemberDTO> findAll(){
@@ -89,16 +91,21 @@ public class MemberController {
                 MemberDTO.class);
     }
 
-    @DeleteMapping("/{memberId}")
-    public void	delete(@PathVariable("memberId")Long id){
+    @DeleteMapping("/{writerid}")
+    public void	delete(@PathVariable("writerid") Long id){
+        System.out.println(id);
         System.out.println("delte test");
         Member entity = new Member();
         entity = repo.findByWriterid(id);
+        System.out.println(entity);
+        //repo.deleteByWriterid(entity.getWriterid());
+        boardrepo.deleteBoard(id);
         repo.deleteById(entity.getWriterid());
     }
 
     @GetMapping("/mypage/{id}")
     public MemberDTO mypage(@PathVariable Long id) {
+        
         repo.findByWriterid(id);
         return config.modelMapper().map(repo.findByWriterid(id), MemberDTO.class);
     }

@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -117,6 +118,20 @@ public class BoardController {
          map.put("list", list);
          
          return new ResponseEntity<HashMap<String, Object>>(map, HttpStatus.OK);
+    }
+
+    
+        // 비밀번호 수정
+        @PutMapping("/modi")
+        public void modiboard(@RequestBody BoardDTO dto) {
+            System.out.println("update test");
+            Board entity = new Board();
+            entity = repo.findByBno(dto.getBno());
+            entity.setTitle(dto.getTitle());
+            entity.setContent(dto.getContent());
+            entity.setDate(LocalDateTime.now());
+            entity.setSort(dto.getSort());
+            repo.save(entity);
     }
     
     

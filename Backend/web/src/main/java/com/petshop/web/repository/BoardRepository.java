@@ -53,5 +53,14 @@ public interface BoardRepository extends CrudRepository<Board, Long>{
     )
     public Board findByBno(Long id);
 
+    public void deleteByBno(Long id);
 
+    @Query(
+        value = "delete from boards where writerid=:writerid",
+        nativeQuery = true
+    )
+    public void deleteBoard(Long writerid);
+
+    
+    
 }

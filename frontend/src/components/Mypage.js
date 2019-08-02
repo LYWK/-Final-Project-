@@ -14,25 +14,36 @@ class Mypage extends Component{
             address: '',
             email: '',
             password:'',
+            id : ''
            
         }
         this.modipass = this.modipass.bind(this)
     }
-
     
-
-
+    logout = () => {
+      sessionStorage.clear()
+      window.location.reload('/');
+      this.props.history.push('/');
+      //this.check()
+      //this.props.history.push("");
+     
+  
+    }
+    
     componentDidMount () {
         let loginId = sessionStorage.getItem('loginId')
         axios.get(`http://localhost:8080/members/mypage/${loginId}`).then(res => {
+         // alert(JSON.stringify(res.data.writerid))
           this.setState({ loginUser: res.data, 
                           membername: res.data.membername, 
                           address: res.data.address, 
                           email: res.data.email,
-                          password: res.data.password})
+                          password: res.data.password,
+                          id: res.data.writerid
+                        })
         })
       }
-    
+ 
       modipass (e) {
         e.preventDefault()
         // let curpwd = this.state.loginUser.password
@@ -62,12 +73,14 @@ class Mypage extends Component{
                             })
                   //this.props.history.push("/mypage")
                   window.location.reload("/mypage");
+
             })
         }
       }
     
       leave = e => {
-        let loginId = sessionStorage.getItem('loginId')
+        let loginId = this.state.id
+        //alert(loginId);
         e.preventDefault()
         Swal.fire({
           title: '탈퇴하시겠습니까?',
@@ -85,8 +98,9 @@ class Mypage extends Component{
                 sessionStorage.clear()
                 Swal.fire('탈퇴가 완료되었습니다.')
                 //alert('탈퇴가 완료되었습니다.')
-                //this.props.history.push('/')
-                window.location.reload();
+                this.logout()
+               window.location.reload('/');
+              
               })
           }
         })

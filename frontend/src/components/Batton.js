@@ -19,9 +19,11 @@ import { Button} from 'react-bootstrap';
 import log from '../assets/images/fffffffff.png'
 class Batton extends Component{
 
-  state = { reload: false }
+  state = { reload: false, 
+      name: sessionStorage.getItem('loginName')}
   renderItems = () => (
     <div>
+      <span style={{fontStyle:'oblique', fontSize :'18px', fontWeight:'bold'}}>{this.state.name} 님  환영 합니다.</span>
       <a href="/mypage">마이페이지</a>
       <Button onClick={this.logout}>로그아웃</Button>
     </div>

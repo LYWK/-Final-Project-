@@ -46,7 +46,7 @@ public class Board implements Serializable{
     @Column(name="date") 
     private LocalDateTime date;
     
-    @Column(name="cnt") private String cnt;
+    @Column(name="cnt") private int cnt;
     
     @Column(name="photo") private String photo;
     

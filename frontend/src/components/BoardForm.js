@@ -40,8 +40,7 @@ class BoardForm extends Component{
             alert(JSON.stringify(res.data));
             console.log(res);
             console.log(res.data);
-           // this.props.history.push('/')
-           window.location.reload();
+           this.props.history.push('/com')
           })
   }
 

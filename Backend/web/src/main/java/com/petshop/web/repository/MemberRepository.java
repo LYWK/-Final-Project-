@@ -20,8 +20,13 @@ public interface MemberRepository  extends CrudRepository<Member, Long>{
     public Member findMemberByMemberid(String memberid);
  
     public String findMembernameByWriterid(Long writerid);
+
+    // public Member deleteByWriterid(Long writerid);
     
     public Member deleteByMemberid(String memberid);
     
-	public Member findByWriterid(Long long1);
+    public Member findByWriterid(Long long1);
+    
+
+   
 }
