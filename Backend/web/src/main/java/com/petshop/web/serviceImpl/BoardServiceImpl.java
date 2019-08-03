@@ -36,8 +36,12 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public Board findByBno(Long id) {
-        return repo.findByBno((Long)id);
+    public Optional<Board> findByBno(Long id) {
+       // System.out.println(repo.findById(id));
+        // int cnt = repo.findCntById(id);
+        // System.out.println(cnt);
+
+        return repo.findById((Long)id);
     }
 
     @Override

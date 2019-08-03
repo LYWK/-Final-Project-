@@ -47,7 +47,7 @@ class BoardDetail extends Component{
             }
             componentDidMount(){
                 axios.get(`http://localhost:8080/board/${this.props.match.params.id}`).then(r=>{
-               // alert(JSON.stringify(r.data));    
+               alert(JSON.stringify(r.data));    
                 console.log(r)
                  this.setState({
                         title: r.data.title,
@@ -66,8 +66,6 @@ class BoardDetail extends Component{
            render() {
             return (
                <div>
-
-            
                     {this.props.match.params.id}
                   <h1 id='title'>React Dynamic Table</h1>
                   <form className="detailform"  style={{width:'700px', margin:'auto',marginTop:'10px'}}>

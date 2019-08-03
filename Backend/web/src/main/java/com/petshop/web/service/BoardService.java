@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public interface BoardService {
     public Board save(Board entity);
 	
-    public Board findByBno(Long id);
+    public Optional<Board> findByBno(Long id);
 	
     public Iterable<Board>	findAll();
 	

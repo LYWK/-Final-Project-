@@ -8,8 +8,9 @@
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     border: 3px solid #ddd;
-    width: 100%;
+    width: 60%;
     margin-bottom: 50px;
+    margin: auto;
   }
   
   #boards td, #boards th {
@@ -28,5 +29,6 @@
     text-align: center;
     background-color: rgb(17, 20, 17);
     color: white;
+    
   }
   

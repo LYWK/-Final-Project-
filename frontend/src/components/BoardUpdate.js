@@ -15,6 +15,8 @@ class BoardUpdate extends Component{
 
      componentDidMount()
           {
+            alert(this.props.match.params.id)
+            
             axios.get(`http://localhost:8080/board/${this.props.match.params.id}`).then(r=>{
            alert(JSON.stringify(r.data));    
             console.log(r)
@@ -22,7 +24,7 @@ class BoardUpdate extends Component{
                     title: r.data.title,
                   content: r.data.content,
                     sort: r.data.sort,
-                    id: r.data.bno,
+                    id: r.data.id,
                  
             })
             }).catch(e=>{
@@ -38,7 +40,7 @@ class BoardUpdate extends Component{
               title:  this.state.title,
               content:  this.state.content,
               sort: this.state.sort,
-              bno: this.state.id
+              bno: this.props.match.params.id
             }
             let headers = {
               'Content-Type': 'application/json',
@@ -52,7 +54,7 @@ class BoardUpdate extends Component{
                 alert(JSON.stringify(res.data));
                 console.log(res);
                 console.log(res.data);
-               this.props.history.push('/boarddetail')
+               this.props.history.push(`/boarddetail/${this.props.match.params.id}`)
               })
       }
      render(){

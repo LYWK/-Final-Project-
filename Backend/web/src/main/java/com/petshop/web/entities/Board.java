@@ -59,11 +59,11 @@ public class Board implements Serializable{
     private Member member;
     
    
-    @Override
-    public String toString(){
-        return "Board :[title:" +title+", content:"+content+", date:"+date+", cnt:"+cnt+
-       ", photo:"+photo+", sort:"+sort+"]";
-    }
+    // @Override
+    // public String toString(){
+    //     return "Board :[title:" +title+", content:"+content+", date:"+date+", cnt:"+cnt+
+    //    ", photo:"+photo+", sort:"+sort+"]";
+    // }
 
     // @Builder
     // public Board(

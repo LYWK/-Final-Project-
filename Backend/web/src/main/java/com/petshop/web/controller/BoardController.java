@@ -71,10 +71,10 @@ public class BoardController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Board> findById(@PathVariable String id){
-        System.out.println("findById 들어온 아이디 : "+id);
-          
-        return new ResponseEntity<Board>(boardService.findByBno(Long.parseLong(id)), HttpStatus.OK);
+    public ResponseEntity<Optional<Board>> findById(@PathVariable String id){
+        repo.addCnt(Long.parseLong(id));
+        Optional<Board> board = boardService.findByBno(Long.parseLong(id));
+        return new ResponseEntity<Optional<Board>>(board, HttpStatus.OK);
     }
 
     @PostMapping("")
@@ -82,7 +82,7 @@ public class BoardController {
         
         System.out.println("regist test");
         
-        System.out.println("wirterid "+dto.getWriterid() );
+        System.out.println("writerid "+dto.getWriterid() );
         HashMap<String,String> map = new HashMap<>();
         Board entity = new Board();
         entity.setTitle(dto.getTitle());
@@ -121,12 +121,13 @@ public class BoardController {
     }
 
     
-        // 비밀번호 수정
+        //게시글 수정
         @PutMapping("/modi")
         public void modiboard(@RequestBody BoardDTO dto) {
             System.out.println("update test");
-            Board entity = new Board();
-            entity = repo.findByBno(dto.getBno());
+            Board entity = repo.findById(dto.getBno()).get();
+            System.out.println("ENTITY : " + entity);
+
             entity.setTitle(dto.getTitle());
             entity.setContent(dto.getContent());
             entity.setDate(LocalDateTime.now());

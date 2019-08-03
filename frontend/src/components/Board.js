@@ -44,12 +44,12 @@ class Board extends Component{
             renderTableHeader() {  
               return (
               
-                <tr>
+                <tr >
                   <th style={{width:"10%"}}>글 번호</th>
-                  <th style={{width:"55%"}}>글 제목</th>
+                  <th style={{width:"50%"}}>글 제목</th>
                   <th style={{width:"10%"}}>작성자</th>
                   <th style={{width:"20%"}}>작성일자</th>
-                  <th style={{width:"5%"}}>조회수</th>
+                  <th style={{width:"10%"}}>조회수</th>
                 </tr> 
               
               )
@@ -70,7 +70,7 @@ class Board extends Component{
            render() {
             return (
                <div>
-                  <h1 id='title'>React Dynamic Table</h1>
+                  <h1 id='title'>게시판</h1>
                   <table id='boards'>
                      <thead>
                      {this.renderTableHeader()}

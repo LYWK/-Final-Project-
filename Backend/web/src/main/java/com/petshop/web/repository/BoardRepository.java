@@ -15,10 +15,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface BoardRepository extends CrudRepository<Board, Long>{
-    
-
-    
-
 
     // @Column(name = "bno")
     // @GeneratedValue(strategy=GenerationType.AUTO) private Long bno;
@@ -61,6 +57,12 @@ public interface BoardRepository extends CrudRepository<Board, Long>{
     )
     public void deleteBoard(Long writerid);
 
+    public int findCntByBno(Long id);
     
-    
+    @Query(
+        value = "update boards set cnt=cnt+1 where bno=:bno",
+        nativeQuery = true
+    )
+    public void addCnt(Long bno);
+
 }
