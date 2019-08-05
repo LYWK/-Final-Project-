@@ -101,10 +101,23 @@ class Batton extends Component{
    // this.setState({ reload: !this.state.reload })
  
   }
-  logout = () => {
-    alert('로그아웃 완료')
+
+  gomain = () =>{
+    window.location.reload('/');
+    this.props.history.push('/');
+     
+  }
+  logout = (e) => {
+    e.preventDefault();
+
     sessionStorage.clear()
-    window.location.reload();
+    alert('로그아웃 완료')
+     this.gomain();
+    window.location.reload('/');
+
+    //window.location.reload('/');
+
+    //window.location.reload();
   
     //this.check()
     //this.props.history.push("");

@@ -49,7 +49,7 @@ class App extends Component {
                       <Box className="test2">
                       <Route exact path="/" component={main} />
                       <Route path="/com" component={Board} />
-                      <Route path="/shop" component={Shop} />
+                      {/* <Route path="/shop" component={Shop} /> */}
                       {/* <Route path="/join" component={Join} />
                       <Route path="/login" component={Login} /> */}
                        <Route path="/mypage" component={Mypage} />

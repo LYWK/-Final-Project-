@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Form,Button} from 'react-bootstrap'
+
 import Axios from 'axios';
 
 class Login extends Component{
@@ -25,7 +25,7 @@ class Login extends Component{
     }
     signIn(e){
        // console.dir(this);
-        alert('ID is ' + this.state.memberid + ' Password is ' + this.state.password);   
+      //  alert('ID is ' + this.state.memberid + ' Password is ' + this.state.password);   
         e.preventDefault();
           let data = {
             memberid: this.state.memberid,
@@ -34,13 +34,13 @@ class Login extends Component{
           const headers = {
             'Content-Type': 'application/json'
           }
-        Axios.post(`http://localhost:8080/members/login`, JSON.stringify(data),{headers: headers}) 
+        Axios.post(`/members/login`, JSON.stringify(data),{headers: headers}) 
           .then(res => {
-            alert('=== login id is ===> '+ res.data.writerid+', name is '+ res.data.membername);
+          //  alert('=== login id is ===> '+ res.data.writerid+', name is '+ res.data.membername);
             sessionStorage.setItem('loginId',res.data.writerid);
             sessionStorage.setItem('loginName',res.data.membername);
             console.log(res);
-          alert('=== session storage is id ===>'+sessionStorage.getItem('loginId')+', '+sessionStorage.getItem('loginName'));
+     //     alert('=== session storage is id ===>'+sessionStorage.getItem('loginId')+', '+sessionStorage.getItem('loginName'));
 
           window.location.reload();
         // this.props.history.push("/")

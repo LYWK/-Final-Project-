@@ -34,10 +34,10 @@ class BoardForm extends Component{
           'Content-Type': 'application/json',
           Authorization: 'JWT fefege..'
         }
-        alert(JSON.stringify(data));
-        Axios.post('http://localhost:8080/board', JSON.stringify(data), { headers: headers }) 
+       // alert(JSON.stringify(data));
+        Axios.post('/board', JSON.stringify(data), { headers: headers }) 
           .then(res => {
-            alert(JSON.stringify(res.data));
+           // alert(JSON.stringify(res.data));
             console.log(res);
             console.log(res.data);
            this.props.history.push('/com')
@@ -52,9 +52,9 @@ class BoardForm extends Component{
                   <label>유형:</label>
                   <select name="sort" class="mdb-select md-form md-outline colorful-select dropdown-primary" onChange={this.handleChange}>
                     <option  disabled selected>선택</option>
-                    <option  value="option1">Option 1</option>
-                    <option  value="option2">Option 2</option>
-                    <option  value="option3">Option 3</option>
+                    <option  value="용품&사료">용품&사료</option>
+                    <option  value="키우다궁금한점">키우다궁금한점</option>
+                    <option  value="분양">분양</option>
                   </select><p></p>
 
          

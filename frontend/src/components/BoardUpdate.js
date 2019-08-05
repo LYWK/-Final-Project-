@@ -15,10 +15,10 @@ class BoardUpdate extends Component{
 
      componentDidMount()
           {
-            alert(this.props.match.params.id)
+          //  alert(this.props.match.params.id)
             
-            axios.get(`http://localhost:8080/board/${this.props.match.params.id}`).then(r=>{
-           alert(JSON.stringify(r.data));    
+            axios.get(`/board/${this.props.match.params.id}`).then(r=>{
+         //  alert(JSON.stringify(r.data));    
             console.log(r)
             this.setState({
                     title: r.data.title,
@@ -49,9 +49,9 @@ class BoardUpdate extends Component{
         
             console.log("++++++++++++++",data)
             //alert(JSON.stringify(data));
-            axios.put('http://localhost:8080/board/modi', JSON.stringify(data), { headers: headers }) 
+            axios.put('/board/modi', JSON.stringify(data), { headers: headers }) 
               .then(res => {
-                alert(JSON.stringify(res.data));
+              //  alert(JSON.stringify(res.data));
                 console.log(res);
                 console.log(res.data);
                this.props.history.push(`/boarddetail/${this.props.match.params.id}`)
@@ -70,9 +70,9 @@ class BoardUpdate extends Component{
              }.bind(this)}
              value={this.state.sort}>
                <option  disabled selected>선택</option>
-               <option  value="option1">Option 1</option>
-               <option  value="option2">Option 2</option>
-               <option  value="option3">Option 3</option>
+               <option  value="용품&사료">용품&사료</option>
+                <option  value="키우다궁금한점">키우다궁금한점</option>
+                <option  value="분양">분양</option>
              </select><p></p>
 
     

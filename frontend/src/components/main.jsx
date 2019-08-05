@@ -7,7 +7,6 @@ import dog3 from '../assets/images/adorable.jpg'
 const main=()=>{
        return(
            <>
-           
                 <Carousel >
                           <Carousel.Item style={{height:'550px'}}>
                               <img

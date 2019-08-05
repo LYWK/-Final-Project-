@@ -36,7 +36,7 @@ class BoardDetail extends Component{
             deleteboard(e){
               e.preventDefault();
                let id = this.state.id;
-               axios.delete(`http://localhost:8080/board/${id}`).then( res=> {
+               axios.delete(`/board/${id}`).then( res=> {
             
                 this.props.history.push('/com')
 
@@ -46,8 +46,8 @@ class BoardDetail extends Component{
               // window.location.reload('http://localhost:3000/com');
             }
             componentDidMount(){
-                axios.get(`http://localhost:8080/board/${this.props.match.params.id}`).then(r=>{
-               alert(JSON.stringify(r.data));    
+                axios.get(`/board/${this.props.match.params.id}`).then(r=>{
+              // alert(JSON.stringify(r.data));    
                 console.log(r)
                  this.setState({
                         title: r.data.title,
@@ -56,7 +56,7 @@ class BoardDetail extends Component{
                         id: r.data.bno,
                         cnt : r.data.cnt + 1
                  })
-                  alert(JSON.stringify(r.data))
+                  //alert(JSON.stringify(r.data))
                 }).catch(e=>{
              
                 })
@@ -66,8 +66,8 @@ class BoardDetail extends Component{
            render() {
             return (
                <div>
-                    {this.props.match.params.id}
-                  <h1 id='title'>React Dynamic Table</h1>
+                    {/* {this.props.match.params.id} */}
+                  <h1 id='title'>자유 게시판</h1>
                   <form className="detailform"  style={{width:'700px', margin:'auto',marginTop:'10px'}}>
                   <div >유형: {this.state.sort}</div><p></p>
                 

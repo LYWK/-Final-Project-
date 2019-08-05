@@ -105,16 +105,17 @@ public class MemberController {
 
     @GetMapping("/mypage/{id}")
     public MemberDTO mypage(@PathVariable Long id) {
-        
+       // System.out.println(id);
         repo.findByWriterid(id);
         return config.modelMapper().map(repo.findByWriterid(id), MemberDTO.class);
     }
 
+    // {"memberid":"jimin","password":"4444","membername":"김님","address":"inchon","email":"jimin@test.com"}
         // 비밀번호 수정
     @PutMapping("/modi")
         public void modiPass(@RequestBody MemberDTO dto) {
             Member entity = new Member();
-            entity = repo.findMemberByMemberid(dto.getMemberid());
+            entity = repo.findById(dto.getWriterid()).get();
             entity.setPassword(dto.getPassword());
             entity.setMembername(dto.getMembername());
             entity.setEmail(dto.getEmail());

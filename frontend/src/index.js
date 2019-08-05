@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './assets/css/index.css'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import axios from "axios"
+
+axios.defaults.baseURL="http://localhost:8080";
+//axios.defaults.baseURL="http://15.164.96.93";
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

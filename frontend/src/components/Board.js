@@ -21,7 +21,7 @@ class Board extends Component{
           
             componentDidMount () {
            
-              axios.get(`http://localhost:8080/board/listall`)
+              axios.get(`/board/listall`)
               .then(res => {
                   console.log(res.data.list)
                  //alert('test '+JSON.stringify(res.data));
@@ -55,18 +55,6 @@ class Board extends Component{
               )
            }
         
-            // renderTableData(){
-            //    {this.state.list.map((contact, index)=>{
-            //       return(
-            //          <div>
-            //             <div>{contact.title}</div>
-            //             <div>{contact.date}</div>
-            //             <div>{contact.membername}</div>
-            //          </div>
-            //       )           
-            //    })}   
-            // }
-
            render() {
             return (
                <div>

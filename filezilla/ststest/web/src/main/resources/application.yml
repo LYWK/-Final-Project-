@@ -1,0 +1,19 @@
+spring:
+   datasource:
+       url: jdbc:mariadb://bitcamp190730.casdtlsbfvi1.ap-northeast-2.rds.amazonaws.com:3306/bitcamp190730
+       driverClassName: org.mariadb.jdbc.Driver
+       username: bitcamp190730
+       password: bitcamp190730
+   jpa:
+       database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+       hibernate:
+           ddl-auto: update
+           
+
+server:
+   port: 8080
+
+
+
+
+    

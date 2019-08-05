@@ -5,7 +5,6 @@ import React from 'react'
 // import Paper from '@material-ui/core/Paper';
 import { BrowserRouter,Router, Route, Link} from "react-router-dom";
 import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -61,8 +60,8 @@ const Mynav=()=>{
                 
                 >
                 <Link to = "/"></Link>
-                <Link to = "/com" className="test8"><Tab label="Item One" /></Link>
-                <Link to = "/shop" className="test8"><Tab label="Item Two" /></Link>
+                <Link to = "/com" className="test8"><Tab label="자유게시판" /></Link>
+                {/* <Link to = "/shop" className="test8"><Tab label="Item Two" /></Link> */}
                 {/* <Tab label="Item Three" /> */}
               </Tabs>
               </AppBar>

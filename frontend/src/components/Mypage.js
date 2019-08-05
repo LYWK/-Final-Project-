@@ -14,14 +14,13 @@ class Mypage extends Component{
             address: '',
             email: '',
             password:'',
-            id : ''
-           
+            id : '',
+         
         }
         this.modipass = this.modipass.bind(this)
     }
     
     logout = () => {
-      sessionStorage.clear()
       window.location.reload('/');
       this.props.history.push('/');
       //this.check()
@@ -32,14 +31,15 @@ class Mypage extends Component{
     
     componentDidMount () {
         let loginId = sessionStorage.getItem('loginId')
-        axios.get(`http://localhost:8080/members/mypage/${loginId}`).then(res => {
-         // alert(JSON.stringify(res.data.writerid))
+        axios.get(`/members/mypage/${loginId}`).then(res => {
+         alert(JSON.stringify(res.data))
           this.setState({ loginUser: res.data, 
                           membername: res.data.membername, 
                           address: res.data.address, 
                           email: res.data.email,
                           password: res.data.password,
-                          id: res.data.writerid
+                          id: res.data.writerid,
+                         
                         })
         })
       }
@@ -48,8 +48,8 @@ class Mypage extends Component{
         e.preventDefault()
         // let curpwd = this.state.loginUser.password
         // console.log(curpwd);
-        
-        if (Number(this.state.curpass) != Number(this.state.password)) {
+        alert(JSON.stringify(this.state.membername))
+        if (this.state.curpass != this.state.password) {
           alert('현재 비밀번호가 일치하지 않습니다.')
         } else {
           let data = {
@@ -57,14 +57,16 @@ class Mypage extends Component{
             password:  this.state.modipass,
             membername: this.state.membername,
             address : this.state.address,
-            email : this.state.email
+            email : this.state.email,
+            writerid : this.state.loginUser.writerid
           }
           let headers = {
             'Content-Type': 'application/json',
-            Authorization: 'JWT fefege..'
+            Authorization: 'JWT fefege..',
           }
+          alert(JSON.stringify(data))
           axios
-            .put(`http://localhost:8080/members/modi`, JSON.stringify(data), { headers: headers })
+            .put(`/members/modi`, JSON.stringify(data), { headers: headers })
             .then( res => {
               alert('비밀번호가 수정되었습니다')
               this.setState({curpass: '',
@@ -93,7 +95,7 @@ class Mypage extends Component{
         }).then(result => {
           if (result.value) {
             axios
-              .delete(`http://localhost:8080/members/${loginId}`)
+              .delete(`/members/${loginId}`)
               .then(res => {
                 sessionStorage.clear()
                 Swal.fire('탈퇴가 완료되었습니다.')

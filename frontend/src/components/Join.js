@@ -1,6 +1,4 @@
 import React,{Component} from 'react'
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
 class Join extends Component{
       
@@ -12,6 +10,7 @@ class Join extends Component{
             membername: '',
             address: '',
             email: '',
+            list:[]
         }
      }
       handleUserIDChange = (e) => {this.setState({ memberid: e.target.value })}
@@ -34,13 +33,29 @@ class Join extends Component{
         'Content-Type': 'application/json',
         Authorization: 'JWT fefege..'
       }
-      axios.post('http://localhost:8080/members', JSON.stringify(data), { headers: headers }) 
+      axios.post('/members', JSON.stringify(data), { headers: headers }) 
         .then(res => {
           console.log(res);
           console.log(res.data);
          // this.props.history.push('/')
          window.location.reload();
+        }).catch(e =>{
+                
         })
+    }
+
+    componentDidMount(){
+      axios.get('/members').then(r=>{
+    // alert(JSON.stringify(r.data));    
+      console.log(r)
+       this.setState({
+         list: r.data
+       })
+      //  alert(JSON.stringify(this.state.list))
+      }).catch(e=>{
+   
+      })
+      //console.log(this.props.match.params.id)
     }
      render(){
             return(
